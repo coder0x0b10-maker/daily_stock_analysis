@@ -101,7 +101,7 @@ class YfinanceFetcher(BaseFetcher):
             return f"{hk_code}.HK"
 
         # 已经包含后缀的情况
-        if '.SS' in code or '.SZ' in code or '.HK' in code:
+        if any(suffix in code for suffix in ['.SS', '.SZ', '.HK', '.TW', '.TWO']):
             return code
 
         # 去除可能的 .SH 后缀
